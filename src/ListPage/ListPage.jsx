@@ -199,11 +199,11 @@ const ListPage = () => {
 
   useEffect(() => {
     fetchRepos();
-  }, [currentPage, sortOrder]);
+  }, [currentPage]);
 
   const fetchRepos = async () => {
     const response = await fetch(
-      `https://api.github.com/search/repositories?q=${query}&sort=updated&order=${sortOrder}&per_page=${ITEMS_PER_PAGE}&page=${currentPage}`,
+      `https://api.github.com/search/repositories?q=${query}&sort=updated&order=${sortOrder}&per_page=${ITEMS_PER_PAGE}&page=${currentPage}`,//default current page=currentPage+1;
       {
         headers: {
           Authorization: `Bearer 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`,
