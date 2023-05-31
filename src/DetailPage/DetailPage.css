@@ -1,13 +1,15 @@
 /* DetailPage.css */
 
 .detail-container {
-    max-width: 400px;
+  
+    max-width:40%;
     margin: 0 auto;
     padding: 20px;
     background-color: #eaeaf2;
   }
   
   .detail-title {
+    
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
