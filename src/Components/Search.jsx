@@ -5,8 +5,8 @@ const Search = (props) => {
   const handleSearch = (event) => {
     event.preventDefault();
     props.setCurrentPage(props.currentPage);
-    props.fetchRepos(props.query, props.sortOrder, props.ITEMS_PER_PAGE, props.currentPage,props.setRepos, props.setTotalCount);//props.setRepos, props.setTotalCount
-  };  
+    props.fetchRepos(props.query, props.sortOrder, props.ITEMS_PER_PAGE, props.currentPage, props.setRepos, props.setTotalCount);
+  };
 
 
 

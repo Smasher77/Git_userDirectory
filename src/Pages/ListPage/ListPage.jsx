@@ -5,9 +5,6 @@ import Search from "../../Components/Search";
 import Table from "../../Components/Table";
 import fetchRepos from "../../Services/fetchService";
 
-//main
-
-
 const ListPage = () => {
   const [query, setQuery] = useState("");
   const [repos, setRepos] = useState([]);
@@ -28,38 +25,7 @@ const ListPage = () => {
 
   }, [currentPage]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const data = await fetchRepos(query, sortOrder, ITEMS_PER_PAGE, currentPage);
-  //       setRepos(data.items);
-  //       setTotalCount(data.total_count);
-  //     } catch (error) {
-  //       throw new Error('Error');
-  //     }
-  //   };
 
-  //   fetchData();
-  // }, [currentPage]);
-
-  // const fetchRepos = async () => {
-
-  //   const response = await fetch(
-
-  //     `${process.env.REACT_APP_BASE_URL}/search/repositories?q=${query}&order=${sortOrder}&per_page=${ITEMS_PER_PAGE}&page=${currentPage + 1}`,
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
-  //       },
-  //     }
-  //   );
-  //   const data = await response.json();
-
-
-
-  //   setRepos(data.items);
-  //   setTotalCount(data.total_count);
-  // };
 
   const handleSort2 = (col) => {
 
