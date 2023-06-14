@@ -8,10 +8,10 @@ const DetailPage = () => {
 
   useEffect(() => {
     fetchRepoDetails();
-  }, [repo]);
+  }, []);
 
   const fetchRepoDetails = async () => {
-    const response = await fetch(`https://api.github.com/repositories/${repoId}`);
+    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/repositories/${repoId}`);
     const data = await response.json();
     setRepo(data);
   };
