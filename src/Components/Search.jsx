@@ -8,8 +8,6 @@ const Search = (props) => {
     props.fetchRepos(props.query, props.sortOrder, props.ITEMS_PER_PAGE, props.currentPage, props.setRepos, props.setTotalCount);
   };
 
-
-
   return (
     <div>
       <h1>Github Repository Search</h1>

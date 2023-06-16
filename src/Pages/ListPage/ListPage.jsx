@@ -12,9 +12,7 @@ const ListPage = () => {
   const [sortOrder, setSortOrder] = useState("ASC");
   const [totalCount, setTotalCount] = useState(0);
 
-
   const ITEMS_PER_PAGE = 10;
-
 
   useEffect(() => {
     if (query) {
@@ -26,8 +24,7 @@ const ListPage = () => {
   }, [currentPage]);
 
 
-
-  const handleSort2 = (col) => {
+  const handlesort = (col) => {
 
     if (!col) {
       return;
@@ -77,7 +74,7 @@ const ListPage = () => {
     <div className="container">
 
       <Search sortOrder={sortOrder} ITEMS_PER_PAGE={ITEMS_PER_PAGE} fetchRepos={fetchRepos} query={query} currentPage={currentPage} setCurrentPage={setCurrentPage} setQuery={setQuery} setTotalCount={setTotalCount} setRepos={setRepos} />
-      <Table handleSort2={handleSort2} repos={repos} />
+      <Table handlesort={handlesort} repos={repos} />
 
       {(repos && repos.length > 0) && (
         <ReactPaginate
@@ -97,13 +94,3 @@ const ListPage = () => {
 };
 
 export default ListPage;
-
-
-
-
-
-
-
-
-
-

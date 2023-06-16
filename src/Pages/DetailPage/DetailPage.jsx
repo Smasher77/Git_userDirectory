@@ -33,11 +33,8 @@ const DetailPage = () => {
 
         View on GitHub
       </a>
-      
-      
     </div>
   );
 };
 
 export default DetailPage;
-
