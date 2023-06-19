@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Search = (props) => {
+  const [q, setQ] = useState(props.query);
 
   const handleSearch = (event) => {
     event.preventDefault();
-    props.setCurrentPage(props.currentPage);
-    props.fetchRepos(props.query, props.sortOrder, props.ITEMS_PER_PAGE, props.currentPage, props.setRepos, props.setTotalCount);
+    props.setQuery(q)
   };
 
   return (
@@ -15,8 +15,8 @@ const Search = (props) => {
         <input
           type="text"
           placeholder="Search by language, user, or name"
-          value={props.query}
-          onChange={(e) => props.setQuery(e.target.value)}
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
           className="input"
         />
         <button type="submit" className="button">Search</button>

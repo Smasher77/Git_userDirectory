@@ -1,24 +1,25 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 const Table = (props) => {
+  const { handleSort, repos } = props;
   return (
     <div>
-        <table className="table">
+      <table className="table">
         <thead>
 
           <tr>
-            <th onClick={() => props.handleSort2('name')}>Name</th>
-            <th onClick={() => props.handleSort2('description')}>Description</th>
-            <th onClick={() => props.handleSort2('owner')}>Owner</th>
-            <th onClick={() => props.handleSort2('created_at')}>Created At</th>
-            <th onClick={() => props.handleSort2('updated_at')}>Updated At</th>
+            <th onClick={() => handleSort('name')}>Name</th>
+            <th onClick={() => handleSort('description')}>Description</th>
+            <th onClick={() => handleSort('owner')}>Owner</th>
+            <th onClick={() => handleSort('created_at')}>Created At</th>
+            <th onClick={() => handleSort('updated_at')}>Updated At</th>
             <th >View Action</th>
-          </tr>
+          </tr>ś
 
         </thead>
         <tbody>
-          {props.repos && props.repos.length > 0 ? (
-            props.repos.map((repo) => (
+          {repos && repos.length > 0 ? (
+            repos.map((repo) => (
               <tr key={repo.id}>
                 <td>{repo.name}</td>
                 <td>{repo.description}</td>

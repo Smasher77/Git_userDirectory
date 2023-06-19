@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import './ListPage.css';
 import Search from "../../Components/Search";
 import Table from "../../Components/Table";
-import fetchRepos from "../../Services/fetchService";
+import { fetchRepos } from "../../Services/fetchService";
 
 const ListPage = () => {
   const [query, setQuery] = useState("");
@@ -12,19 +12,25 @@ const ListPage = () => {
   const [sortOrder, setSortOrder] = useState("ASC");
   const [totalCount, setTotalCount] = useState(0);
 
+
   const ITEMS_PER_PAGE = 10;
+
 
   useEffect(() => {
     if (query) {
-      const data = fetchRepos(query, sortOrder, ITEMS_PER_PAGE, currentPage, setRepos, setTotalCount);
-      setRepos(data.items);
-      setTotalCount(data.total_count);
+      fetchRepos(query, sortOrder, ITEMS_PER_PAGE, currentPage, setRepos, setTotalCount).then((data) => {
+        console.log('List page', data);
+        setRepos(data.items);
+        setTotalCount(data.total_count);
+      });
+
     }
 
-  }, [currentPage]);
+  }, [currentPage, query]);
 
 
-  const handlesort = (col) => {
+
+  const handleSort = (col) => {
 
     if (!col) {
       return;
@@ -73,8 +79,8 @@ const ListPage = () => {
   return (
     <div className="container">
 
-      <Search sortOrder={sortOrder} ITEMS_PER_PAGE={ITEMS_PER_PAGE} fetchRepos={fetchRepos} query={query} currentPage={currentPage} setCurrentPage={setCurrentPage} setQuery={setQuery} setTotalCount={setTotalCount} setRepos={setRepos} />
-      <Table handlesort={handlesort} repos={repos} />
+      <Search  query={query} setQuery={setQuery}  />
+      <Table handleSort={handleSort} repos={repos} />
 
       {(repos && repos.length > 0) && (
         <ReactPaginate
@@ -94,3 +100,13 @@ const ListPage = () => {
 };
 
 export default ListPage;
+
+
+
+
+
+
+
+
+
+

@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import './DetailPage.css';
+import { fetchRepoDetails } from "../../Services/fetchService";
 
 const DetailPage = () => {
   const { repoId } = useParams();
   const [repo, setRepo] = useState(null);
 
   useEffect(() => {
-    fetchRepoDetails();
+    getDetails();
+  
   }, []);
-
-  const fetchRepoDetails = async () => {
-    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/repositories/${repoId}`);
-    const data = await response.json();
-    setRepo(data);
+ 
+  const getDetails = async () => {
+    const response = await fetchRepoDetails(repoId)
+    
+    setRepo(response);
   };
+  
 
   if (!repo) {
     return <div>Loading...</div>;
@@ -33,8 +36,11 @@ const DetailPage = () => {
 
         View on GitHub
       </a>
+      
+      
     </div>
   );
 };
 
 export default DetailPage;
+

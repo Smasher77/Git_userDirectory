@@ -1,43 +1,81 @@
-/* DetailPage.css */
-
 .detail-container {
-  
-    max-width:40%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #eaeaf2;
+  max-width: 35%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #eaeaf2;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .detail-title {
-    
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .detail-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+}
+
+.detail-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.detail-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  animation: zoomIn 0.5s ease-in;
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
   }
-  
-  .detail-description {
-    font-size: 16px;
-    margin-bottom: 10px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .detail-info {
-    margin-bottom: 10px;
+}
+
+.detail-description {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+  animation: slideIn 0.5s ease-in;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
   }
-  
-  .detail-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #8282d7;
-    color: #333;
-    text-decoration: none;
-    border-radius: 5px;
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
+}
+
+.detail-info {
+  margin-bottom: 10px;
+  transition: color 0.5s ease-in;
+}
+
+.detail-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #8282d7;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.5s ease-in, color 0.5s ease-in;
+}
+
+.detail-link:hover {
+  background-color: #333;
+  color: #fff;
+}
