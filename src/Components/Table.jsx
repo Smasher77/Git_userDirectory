@@ -14,7 +14,7 @@ const Table = (props) => {
             <th onClick={() => handleSort('created_at')}>Created At</th>
             <th onClick={() => handleSort('updated_at')}>Updated At</th>
             <th >View Action</th>
-          </tr>ś
+          </tr>
 
         </thead>
         <tbody>
